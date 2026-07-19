@@ -1,18 +1,6 @@
-
 /* ==========================================================
    SUPABASE CONFIG
 ========================================================== */
-
-
-/*
-    Supabase 프로젝트 정보 입력
-
-    Supabase Dashboard
-    → Project Settings
-    → API
-
-    URL, anon public key 입력
-*/
 
 
 const SUPABASE_URL = "https://svmsqobmypmauyyamcen.supabase.co";
@@ -21,64 +9,52 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 
 
-/* ==========================================================
-   SUPABASE CLIENT
-========================================================== */
-
-
-const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-);
-
 
 
 /* ==========================================================
-   DATABASE COMMON FUNCTIONS
+   CREATE CLIENT
 ========================================================== */
 
 
-/*
-    데이터 조회
-*/
-
-async function fetchData(table){
-
-
-    try{
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
 
 
-        const { data, error } = await supabaseClient
 
-            .from(table)
 
-            .select("*")
 
-            .order("created_at", {
+/* ==========================================================
+   GET DATA
+========================================================== */
 
+
+async function getData(table){
+
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from(table)
+        .select("*")
+        .order(
+            "created_at",
+            {
                 ascending:false
-
-            });
-
-
-
-        if(error){
-
-            throw error;
-
-        }
+            }
+        );
 
 
 
-        return data;
-
-
-
-    }catch(error){
+    if(error){
 
 
         console.error(
-            `${table} 조회 실패 :`,
+            table,
             error
         );
 
@@ -88,47 +64,45 @@ async function fetchData(table){
     }
 
 
+
+    return data;
+
+
 }
 
 
 
-/*
-    데이터 추가
-*/
-
-async function insertData(table, payload){
 
 
-    try{
+/* ==========================================================
+   INSERT DATA
+========================================================== */
 
 
-        const { data, error } = await supabaseClient
-
-            .from(table)
-
-            .insert(payload)
-
-            .select();
+async function addData(
+    table,
+    payload
+){
 
 
-
-        if(error){
-
-            throw error;
-
-        }
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from(table)
+        .insert(
+            payload
+        )
+        .select();
 
 
 
-        return data;
-
-
-
-    }catch(error){
+    if(error){
 
 
         console.error(
-            `${table} 추가 실패 :`,
+            table,
             error
         );
 
@@ -138,53 +112,50 @@ async function insertData(table, payload){
     }
 
 
+
+    return data;
+
+
 }
 
 
 
-/*
-    데이터 수정
-*/
 
-async function updateData(
+
+/* ==========================================================
+   UPDATE DATA
+========================================================== */
+
+
+async function editData(
     table,
     id,
     payload
 ){
 
 
-    try{
-
-
-        const { data, error } = await supabaseClient
-
-            .from(table)
-
-            .update(payload)
-
-            .eq("id", id)
-
-            .select();
-
-
-
-        if(error){
-
-            throw error;
-
-        }
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from(table)
+        .update(
+            payload
+        )
+        .eq(
+            "id",
+            id
+        )
+        .select();
 
 
 
-        return data;
-
-
-
-    }catch(error){
+    if(error){
 
 
         console.error(
-            `${table} 수정 실패 :`,
+            table,
             error
         );
 
@@ -194,50 +165,45 @@ async function updateData(
     }
 
 
+
+    return data;
+
+
 }
 
 
 
-/*
-    데이터 삭제
-*/
 
-async function deleteData(
+
+/* ==========================================================
+   DELETE DATA
+========================================================== */
+
+
+async function removeData(
     table,
     id
 ){
 
 
-    try{
-
-
-        const { error } = await supabaseClient
-
-            .from(table)
-
-            .delete()
-
-            .eq("id", id);
-
-
-
-        if(error){
-
-            throw error;
-
-        }
+    const {
+        error
+    } =
+    await supabaseClient
+        .from(table)
+        .delete()
+        .eq(
+            "id",
+            id
+        );
 
 
 
-        return true;
-
-
-
-    }catch(error){
+    if(error){
 
 
         console.error(
-            `${table} 삭제 실패 :`,
+            table,
             error
         );
 
@@ -247,7 +213,109 @@ async function deleteData(
     }
 
 
+
+    return true;
+
+
 }
+
+
+
+
+
+/* ==========================================================
+   SEARCH DATA
+========================================================== */
+
+
+async function searchData(
+    table,
+    column,
+    keyword
+){
+
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from(table)
+        .select("*")
+        .ilike(
+            column,
+            `%${keyword}%`
+        );
+
+
+
+    if(error){
+
+
+        console.error(
+            table,
+            error
+        );
+
+
+        return [];
+
+    }
+
+
+
+    return data;
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   COUNT DATA
+========================================================== */
+
+
+async function countData(
+    table
+){
+
+
+    const {
+        count,
+        error
+    }
+    =
+    await supabaseClient
+        .from(table)
+        .select(
+            "*",
+            {
+                count:"exact",
+                head:true
+            }
+        );
+
+
+
+    if(error){
+
+        console.error(error);
+
+        return 0;
+
+    }
+
+
+
+    return count;
+
+
+}
+
+
 
 
 
@@ -256,16 +324,16 @@ async function deleteData(
 ========================================================== */
 
 
-function subscribeTable(
+function realtime(
     table,
     callback
 ){
 
 
     return supabaseClient
-
-        .channel(`${table}-changes`)
-
+        .channel(
+            table
+        )
         .on(
             "postgres_changes",
             {
@@ -275,7 +343,6 @@ function subscribeTable(
             },
             callback
         )
-
         .subscribe();
 
 
