@@ -1,1 +1,364 @@
 
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+
+/* ==========================================================
+   LARGE TABLET
+========================================================== */
+
+@media (max-width:1200px){
+
+
+    /* Dashboard */
+
+    .summary-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    /* Layout */
+
+    .main-content{
+
+        padding:24px;
+
+    }
+
+
+}
+
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width:992px){
+
+
+    /* Sidebar */
+
+    .sidebar{
+
+        transform:translateX(-100%);
+
+        z-index:100;
+
+    }
+
+
+    .sidebar.active{
+
+        transform:translateX(0);
+
+    }
+
+
+    .main-content{
+
+        margin-left:0;
+
+    }
+
+
+    .sidebar-overlay.active{
+
+        display:block;
+
+    }
+
+
+
+    /* Header */
+
+    .header{
+
+        padding:16px 20px;
+
+    }
+
+
+
+    /* Dashboard */
+
+    .summary-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+
+    /* Form */
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .filter-box{
+
+        flex-wrap:wrap;
+
+    }
+
+
+
+}
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+
+    /* Common */
+
+    .main-content{
+
+        padding:16px;
+
+    }
+
+
+
+    /* Page Header */
+
+    .page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+
+
+    .page-title{
+
+        font-size:22px;
+
+    }
+
+
+
+    /* Dashboard */
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .summary-card{
+
+        padding:20px;
+
+    }
+
+
+
+    .summary-value{
+
+        font-size:24px;
+
+    }
+
+
+
+    .chart-card,
+    .recent-card{
+
+        padding:18px;
+
+    }
+
+
+
+    .chart-area{
+
+        height:250px;
+
+    }
+
+
+
+    /* Form */
+
+    .form-card{
+
+        padding:20px;
+
+    }
+
+
+
+    .form-actions{
+
+        flex-direction:column;
+
+    }
+
+
+    .btn{
+
+        width:100%;
+
+    }
+
+
+
+    .filter-box{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+
+
+    .filter-item{
+
+        width:100%;
+
+    }
+
+
+
+    .date-range{
+
+        width:100%;
+
+    }
+
+
+
+    /* Table */
+
+    .table-container{
+
+        padding:16px;
+
+    }
+
+
+    .table-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:14px;
+
+    }
+
+
+
+    .table-actions{
+
+        width:100%;
+
+    }
+
+
+    .table-actions .btn{
+
+        flex:1;
+
+    }
+
+
+
+}
+
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width:480px){
+
+
+    .summary-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+
+
+    .summary-icon{
+
+        width:46px;
+
+        height:46px;
+
+    }
+
+
+
+    .quick-actions{
+
+        flex-direction:column;
+
+    }
+
+
+
+    .quick-action{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+
+
+    .pagination{
+
+        gap:4px;
+
+    }
+
+
+
+    .page-btn{
+
+        width:32px;
+
+        height:32px;
+
+    }
+
+
+
+}
