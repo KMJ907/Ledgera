@@ -48,15 +48,46 @@
 @media (max-width:992px){
 
 
+    /* 모바일 메뉴 버튼 표시 */
+
+    .mobile-menu-btn{
+
+        display:flex;
+
+        position:fixed;
+
+        top:16px;
+
+        right:16px;
+
+        z-index:120;
+
+    }
+
+
+
     /* Sidebar */
 
     .sidebar{
 
+        position:fixed;
+
+        top:0;
+
+        left:0;
+
+        width:260px;
+
+        height:100vh;
+
         transform:translateX(-100%);
 
-        z-index:100;
+        transition:.3s ease;
+
+        z-index:110;
 
     }
+
 
 
     .sidebar.active{
@@ -66,11 +97,23 @@
     }
 
 
-    .main-content{
 
-        margin-left:0;
+    /* Overlay */
+
+    .sidebar-overlay{
+
+        display:none;
+
+        position:fixed;
+
+        inset:0;
+
+        background:rgba(0,0,0,.45);
+
+        z-index:105;
 
     }
+
 
 
     .sidebar-overlay.active{
@@ -81,39 +124,13 @@
 
 
 
-    /* Header */
+    /* Main */
 
-    .header{
+    .main-content{
 
-        padding:16px 20px;
+        margin-left:0;
 
-    }
-
-
-
-    /* Dashboard */
-
-    .summary-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-
-
-    /* Form */
-
-    .form-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-
-    .filter-box{
-
-        flex-wrap:wrap;
+        padding:70px 16px 20px;
 
     }
 
@@ -126,6 +143,8 @@
 /* ==========================================================
    MOBILE
 ========================================================== */
+
+
 
 @media (max-width:768px){
 
@@ -360,5 +379,36 @@
     }
 
 
+
+}
+
+/* ==========================================================
+   MOBILE MENU BUTTON
+========================================================== */
+
+
+.mobile-menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
