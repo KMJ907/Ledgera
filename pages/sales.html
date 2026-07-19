@@ -1,1 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>매출 관리</title>
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="../css/common.css">
+
+<link rel="stylesheet" href="../css/layout.css">
+
+<link rel="stylesheet" href="../css/form.css">
+
+<link rel="stylesheet" href="../css/table.css">
+
+<link rel="stylesheet" href="../css/responsive.css">
+
+
+</head>
+
+
+<body>
+
+
+
+<div class="sidebar-overlay"></div>
+
+
+
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+
+    <div class="sidebar-logo">
+
+        매입매출 관리
+
+    </div>
+
+
+
+    <nav class="sidebar-menu">
+
+
+        <a href="../index.html">
+
+            대시보드
+
+        </a>
+
+
+
+        <a href="purchase.html">
+
+            매입관리
+
+        </a>
+
+
+
+        <a href="sales.html" class="active">
+
+            매출관리
+
+        </a>
+
+
+
+        <a href="products.html">
+
+            상품관리
+
+        </a>
+
+
+
+        <a href="partners.html">
+
+            거래처관리
+
+        </a>
+
+
+
+        <a href="inventory.html">
+
+            재고관리
+
+        </a>
+
+
+
+        <a href="settings.html">
+
+            설정
+
+        </a>
+
+
+    </nav>
+
+
+</aside>
+
+
+
+
+
+
+<!-- Header -->
+
+<header class="header">
+
+
+    <h1>
+
+        매출 관리
+
+    </h1>
+
+
+
+    <button class="mobile-menu-btn">
+
+        ☰
+
+    </button>
+
+
+</header>
+
+
+
+
+
+
+
+<!-- Main -->
+
+<main class="main-content">
+
+
+
+<section>
+
+
+
+<div class="page-header">
+
+
+    <div>
+
+
+        <h2 class="page-title">
+
+            매출 등록
+
+        </h2>
+
+
+        <p>
+
+            판매 내역을 관리합니다.
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- SALES FORM -->
+
+<div class="form-container">
+
+
+<form id="salesForm">
+
+
+
+<div class="form-grid">
+
+
+
+<div class="form-group">
+
+
+<label>
+
+상품명
+
+</label>
+
+
+<input
+type="text"
+name="product_name"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+거래처
+
+</label>
+
+
+<input
+type="text"
+name="partner_name"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+수량
+
+</label>
+
+
+<input
+type="number"
+name="quantity"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+판매 단가
+
+</label>
+
+
+<input
+type="number"
+name="price"
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+매출일
+
+</label>
+
+
+<input
+type="date"
+name="sales_date"
+required>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="form-actions">
+
+
+<button 
+type="submit"
+class="btn">
+
+
+등록
+
+
+</button>
+
+
+</div>
+
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- SALES TABLE -->
+
+
+<div class="table-container">
+
+
+
+<div class="table-header">
+
+
+<h2 class="table-title">
+
+매출 목록
+
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="table-wrapper">
+
+
+<table
+class="data-table"
+id="salesTable">
+
+
+<thead>
+
+
+<tr>
+
+
+<th>날짜</th>
+
+<th>상품명</th>
+
+<th>거래처</th>
+
+<th>수량</th>
+
+<th>단가</th>
+
+<th>금액</th>
+
+<th>관리</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+
+<!-- JS -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="../js/supabase.js"></script>
+
+<script src="../js/app.js"></script>
+
+<script src="../js/sales.js"></script>
+
+
+
+</body>
+
+</html>
