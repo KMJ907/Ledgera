@@ -1,1 +1,531 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>설정</title>
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/form.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="sidebar-overlay"></div>
+
+
+
+
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+    매입매출 관리
+
+</div>
+
+
+
+<nav class="sidebar-menu">
+
+
+<a href="../index.html">
+
+    대시보드
+
+</a>
+
+
+
+<a href="purchase.html">
+
+    매입관리
+
+</a>
+
+
+
+<a href="sales.html">
+
+    매출관리
+
+</a>
+
+
+
+<a href="products.html">
+
+    상품관리
+
+</a>
+
+
+
+<a href="partners.html">
+
+    거래처관리
+
+</a>
+
+
+
+<a href="inventory.html">
+
+    재고관리
+
+</a>
+
+
+
+<a href="settings.html" class="active">
+
+    설정
+
+</a>
+
+
+
+</nav>
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- Header -->
+
+
+<header class="header">
+
+
+<h1>
+
+설정
+
+</h1>
+
+
+
+<button class="mobile-menu-btn">
+
+☰
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- Main -->
+
+
+<main class="main-content">
+
+
+
+<section>
+
+
+
+
+
+<div class="page-header">
+
+
+<div>
+
+
+<h2 class="page-title">
+
+기본 설정
+
+</h2>
+
+
+<p>
+
+서비스 환경과 데이터를 관리합니다.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- COMPANY SETTING -->
+
+
+<div class="form-container">
+
+
+<form id="settingForm">
+
+
+
+<div class="form-grid">
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+회사명
+
+</label>
+
+
+<input
+
+type="text"
+
+name="company_name"
+
+id="companyName">
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+대표자명
+
+</label>
+
+
+<input
+
+type="text"
+
+name="owner_name"
+
+id="ownerName">
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+전화번호
+
+</label>
+
+
+<input
+
+type="text"
+
+name="phone"
+
+id="companyPhone">
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+
+주소
+
+</label>
+
+
+<input
+
+type="text"
+
+name="address"
+
+id="companyAddress">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-actions">
+
+
+<button
+
+type="submit"
+
+class="btn">
+
+
+저장
+
+
+</button>
+
+
+</div>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- SYSTEM SETTING -->
+
+
+<div class="form-container">
+
+
+
+<h2 class="table-title">
+
+시스템 설정
+
+</h2>
+
+
+
+<div class="setting-list">
+
+
+
+<div class="setting-item">
+
+
+<div>
+
+
+<h3>
+
+다크 모드
+
+</h3>
+
+
+<p>
+
+어두운 화면 테마 사용
+
+</p>
+
+
+</div>
+
+
+
+<label class="switch">
+
+
+<input
+
+type="checkbox"
+
+id="darkModeToggle">
+
+
+<span class="slider"></span>
+
+
+</label>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- DATA MANAGEMENT -->
+
+
+<div class="form-container">
+
+
+
+<h2 class="table-title">
+
+데이터 관리
+
+</h2>
+
+
+
+<div class="setting-buttons">
+
+
+
+<button
+
+class="btn"
+
+id="backupBtn">
+
+데이터 백업
+
+</button>
+
+
+
+
+
+<button
+
+class="btn"
+
+id="restoreBtn">
+
+데이터 복원
+
+</button>
+
+
+
+
+
+<button
+
+class="btn danger"
+
+id="deleteAllBtn">
+
+전체 데이터 삭제
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<!-- JS -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="../js/supabase.js"></script>
+
+<script src="../js/app.js"></script>
+
+<script src="../js/settings.js"></script>
+
+
+
+</body>
+
+</html>
